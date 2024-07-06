@@ -10,5 +10,8 @@ def about_view(request):
 def srvice_view(request):
     return render(request,'website/services.html')
 
+def service_details_view(request):
+    return render(request,'website/services-details.html')
+
 def contact_view(request):
     return render(request,'website/contact.html')

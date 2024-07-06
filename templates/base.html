@@ -131,24 +131,14 @@
                                     <li>
                                        <a href="{% url 'website:service' %}">دوره ها</a>
                                     </li>
-                                    <li>
-                                       <a href="services.html"> رویداد </a>
-                                    </li>
-                                    <li>
-                                       <a href="services.html"> فروشگاه </a>
-                                    </li>
+ 
                                     <li>
                                        <a href="{% url 'website:about' %}"> درباره ما</a>
 
                                     </li>
                                     <li>
-                                       <a href="blog.html"> اخبار </a>
-                                       <ul class="submenu">
-                                          <li>
-                                             <a href="blog.html">بلاگ</a>
-                                             <a href="blog-details.html">جزییات بلاگ</a>
-                                          </li>
-                                       </ul>
+                                       <a href="{% url 'blog:blog' %}"> اخبار </a>
+
                                     </li>
                                     <li>
                                        <a href="{% url 'website:contact' %}">تماس با ما</a>

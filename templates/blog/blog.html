@@ -1,0 +1,425 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+      <!-- offcanvas area start -->
+      <div class="offcanvas__area">
+         <div class="offcanvas__wrapper">
+            <div class="offcanvas__close">
+               <button class="offcanvas__close-btn" id="offcanvas__close-btn">
+                  <i class="fal fa-times"></i>
+               </button>
+            </div>
+            <div class="offcanvas__content">
+               <div class="offcanvas__logo mb-40">
+                  <a href="index.html">
+                  <img src="{% static 'img/logo/logo-black.png' %}" alt="logo">
+                  </a>
+               </div>
+               <div class="offcanvas__search mb-25">
+                  <form action="#">
+                     <input type="text" placeholder="دنبال چه می‌گردید؟">
+                     <button type="submit" ><i class="far fa-search"></i></button>
+                  </form>
+               </div>
+               <div class="mobile-menu fix"></div>
+               <div class="offcanvas__text d-none d-lg-block">
+                  <p> اما من باید برای شما توضیح دهم که چگونه این ایده اشتباه در مورد محکوم کردن لذت و ستایش درد متولد شده است و به شما گزارش کاملی از سیستم می دهد و آموزه های واقعی اکتشاف بزرگ را شرح می دهد </p>
+               </div>
+               <div class="offcanvas__img d-none d-lg-block mb-20">
+                  <div class="row gx-2">
+                     <div class="col-4">
+                        <div class="offcanvas__single-img w-img mb-10">
+                           <a class="popup-img" href="{% static 'img/offcanvas/offcanvas-1.jpg' %}">
+                              <img src="{% static 'img/offcanvas/offcanvas-1.jpg' %}" alt="">
+                           </a>
+                        </div>
+                     </div>
+                     <div class="col-4">
+                        <div class="offcanvas__single-img w-img mb-10">
+                           <a class="popup-img" href="{% static 'img/offcanvas/offcanvas-2.jpg' %}">
+                              <img src="{% static 'img/offcanvas/offcanvas-2.jpg' %}" alt="">
+                           </a>
+                        </div>
+                     </div>
+                     <div class="col-4">
+                        <div class="offcanvas__single-img w-img mb-10">
+                           <a class="popup-img" href="{% static 'img/offcanvas/offcanvas-3.jpg' %}">
+                              <img src="{% static 'img/offcanvas/offcanvas-3.jpg' %}" alt="">
+                           </a>
+                        </div>
+                     </div>
+                     <div class="col-4">
+                        <div class="offcanvas__single-img w-img mb-10">
+                           <a class="popup-img" href="{% static 'img/offcanvas/offcanvas-4.jpg' %}">
+                              <img src="{% static 'img/offcanvas/offcanvas-4.jpg' %}" alt="">
+                           </a>
+                        </div>
+                     </div>
+                     <div class="col-4">
+                        <div class="offcanvas__single-img w-img mb-10">
+                           <a class="popup-img" href="{% static 'img/offcanvas/offcanvas-5.jpg' %}">
+                              <img src="{% static 'img/offcanvas/offcanvas-5.jpg' %}" alt="">
+                           </a>
+                        </div>
+                     </div>
+                     <div class="col-4">
+                        <div class="offcanvas__single-img w-img mb-10">
+                           <a class="popup-img" href="{% static 'img/offcanvas/offcanvas-6.jpg' %}">
+                              <img src="{% static 'img/offcanvas/offcanvas-6.jpg' %}" alt="">
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="offcanvas__map d-none d-lg-block mb-15">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d29176.030811137334!2d90.3883827!3d23.924917699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1605272373598!5m2!1sen!2sbd"></iframe>
+               </div>
+               <div class="offcanvas__contact mt-30 mb-20">
+                  <h4> اطلاعات تماس </h4>
+
+                  <ul>
+                     <li class="d-flex align-items-center">
+                        <div class="offcanvas__contact-icon mr-15">
+                           <i class="fal fa-map-marker-alt"></i>
+                        </div>
+                        <div class="offcanvas__contact-text">
+                           <a target="_blank" href="https://www.google.com/maps/place/Dhaka/@23.7806207,90.3492859,12z/data=!3m1!4b1!4m5!3m4!1s0x3755b8b087026b81:0x8fa563bbdd5904c2!8m2!3d23.8104753!4d90.4119873">یک آدرس فرضی در این مکان است</a>
+                        </div>
+                     </li>
+                     <li class="d-flex align-items-center">
+                        <div class="offcanvas__contact-icon mr-15">
+                           <i class="far fa-phone"></i>
+                        </div>
+                        <div class="offcanvas__contact-text">
+                           <a href="mailto:support@gmail.com">088889797697</a>
+                        </div>
+                     </li>
+                     <li class="d-flex align-items-center">
+                        <div class="offcanvas__contact-icon mr-15">
+                           <i class="fal fa-envelope"></i>
+                        </div>
+                        <div class="offcanvas__contact-text">
+                           <a href="tel:+012-345-6789">support@mail.com</a>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+               <div class="offcanvas__social">
+                  <ul>
+                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                     <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                     <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- offcanvas area end -->      
+      <div class="body-overlay"></div>
+      <!-- offcanvas area end -->
+
+      <!-- search overlay start -->
+      <section class="search__area d-flex align-items-center">
+         <div class="container">
+            <div class="row">
+               <div class="col-xxl-12">
+                  <div class="search__wrapper">
+                     <div class="search__close">
+                        <button class="search-close-btn"><i class="fal fa-times"></i></button>
+                     </div>
+                     <form action="#">
+                        <div class="search__input">
+                           <input type="text" placeholder="جستجو ... ">
+                           <button type="submit"><i class="far fa-search"></i></button>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- search overlay end -->
+
+
+      <main>
+
+            <!-- page title area start -->
+            <section class="page__title-area pt-145 pb-150 p-relative page__title-overlay" data-background="{% static 'img/page-title/page-title-1.jpg' %}">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-xxl-12">
+                        <div class="page__title-wrapper">
+                           <h3 class="page__title">بلاگ</h3>
+                           <nav aria-label="breadcrumb">
+                              <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="{% url 'website:index' %}"> خانه </a></li>
+                              <li class="breadcrumb-item active" aria-current="page">بلاگ</li>
+                              </ol>
+                           </nav>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <!-- page title area end -->
+
+            <!-- blog area start -->
+            <section class="blog__area pt-130 pb-130">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-xxl-8 col-xl-8 col-lg-8">
+                        <div class="postbox__wrapper pr-20">
+                           <article class="postbox__item format-image mb-50 transition-3">
+                              <div class="postbox__thumb w-img">
+                                 <a href="blog-details.html">
+                                    <img src="{% static 'img/blog/blog-big-1.jpg' %}" alt="">
+                                 </a>
+                              </div>
+                              <div class="postbox__content">
+                                 <div class="postbox__meta">
+                                    <span><i class="far fa-calendar-check"></i> 21 دی 1401 </span>
+                                    <span><a href="#"><i class="far fa-user"></i> شهناز</a></span>
+                                    <span><a href="#"><i class="fal fa-comments"></i> 02 نظرات</a></span>
+                                 </div>
+                                 <h3 class="postbox__title">
+                                    <a href="{% url 'blog:single' %}">چگونه خانه خود را سریعتر و کارآمدتر تمیز کنیم</a>
+                                 </h3>
+                                 <div class="postbox__text">
+                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.  […]</p>
+                                 </div>
+                                 <div class="postbox__read-more">
+                                    <a href="{% url 'blog:single' %}" class="d-btn d-btn-3 d-btn-orange">بیشتر بخوانید </a>
+                                 </div>
+                              </div>
+                           </article>
+                           <article class="postbox__item format-video mb-50 transition-3">
+                              <div class="postbox__thumb postbox__video w-img p-relative">
+                                 <a href="blog-details.html">
+                                    <img src="{% static 'img/blog/blog-big-1.jpg' %}" alt="">
+                                 </a>
+                                 <a href="https://youtu.be/-WRZI63emjs" class="play-btn pulse-btn popup-video"><i class="fas fa-play"></i></a>
+                              </div>
+                              <div class="postbox__content">
+                                 <div class="postbox__meta">
+                                    <span><i class="far fa-calendar-check"></i> 21 دی 1401 </span>
+                                    <span><a href="#"><i class="far fa-user"></i> شهناز</a></span>
+                                    <span><a href="#"><i class="fal fa-comments"></i> 02 نظرات</a></span>
+                                 </div>
+                                 <h3 class="postbox__title">
+                                    <a href="blog-details.html">چهار راه یک محل کار تمیز باعث خوشبختی و سالم بودن کارمندان می شود</a>
+                                 </h3>
+                                 <div class="postbox__text">
+                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.  […]</p>
+                                 </div>
+                                 <div class="postbox__read-more">
+                                    <a href="blog-details.html" class="d-btn d-btn-3 d-btn-orange">بیشتر بخوانید </a>
+                                 </div>
+                              </div>
+                           </article>
+                           <article class="postbox__item format-audio mb-50 transition-3">
+                              <div class="postbox__thumb postbox__audio w-img p-relative">
+                                 <iframe allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/316547873&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
+                              </div>
+                              <div class="postbox__content">
+                                 <div class="postbox__meta">
+                                    <span><i class="far fa-calendar-check"></i> 21 دی 1401 </span>
+                                    <span><a href="#"><i class="far fa-user"></i> شهناز</a></span>
+                                    <span><a href="#"><i class="fal fa-comments"></i> 02 نظرات</a></span>
+                                 </div>
+                                 <h3 class="postbox__title">
+                                    <a href="blog-details.html">زمان تمیز کردن بهار؟از این نکات متخصصان استفاده کنید</a>
+                                 </h3>
+                                 <div class="postbox__text">
+                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.  […]</p>
+                                 </div>
+                                 <div class="postbox__read-more">
+                                    <a href="blog-details.html" class="d-btn d-btn-3 d-btn-orange">بیشتر بخوانید </a>
+                                 </div>
+                              </div>
+                           </article>
+                           <article class="postbox__item format-image mb-50 transition-3">
+                              <div class="postbox__thumb postbox__slider swiper-container w-img p-relative">
+                                 <div class="swiper-wrapper">
+                                    <div class="postbox__slider-item swiper-slide">
+                                       <img src="{% static 'img/blog/blog-big-4.jpg' %}" alt="">
+                                    </div>
+                                    <div class="postbox__slider-item swiper-slide">
+                                       <img src="{% static 'img/blog/blog-big-5.jpg' %}" alt="">
+                                    </div>
+                                    <div class="postbox__slider-item swiper-slide">
+                                       <img src="{% static 'img/blog/blog-big-6.jpg' %}" alt="">
+                                    </div>
+                                 </div>
+                                 <div class="postbox-nav">
+                                    <button class="postbox-slider-button-next"><i class="fal fa-arrow-right"></i></button>
+                                    <button class="postbox-slider-button-prev"><i class="fal fa-arrow-left"></i></button>
+                                 </div>
+                              </div>
+                              <div class="postbox__content">
+                                 <div class="postbox__meta">
+                                    <span><i class="far fa-calendar-check"></i> 21 دی 1401 </span>
+                                    <span><a href="#"><i class="far fa-user"></i> شهناز</a></span>
+                                    <span><a href="#"><i class="fal fa-comments"></i> 02 نظرات</a></span>
+                                 </div>
+                                 <h3 class="postbox__title">
+                                    <a href="blog-details.html">چگونه خانه خود را سریعتر و کارآمدتر تمیز کنیم</a>
+                                 </h3>
+                                 <div class="postbox__text">
+                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.  […]</p>
+                                 </div>
+                                 <div class="postbox__read-more">
+                                    <a href="blog-details.html" class="d-btn d-btn-3 d-btn-orange">بیشتر بخوانید </a>
+                                 </div>
+                              </div>
+                           </article>
+                           <div class="basic-pagination">
+                              <nav>
+                                 <ul>
+                                    <li>
+                                       <a href="blog.html">
+                                          <i class="far fa-angle-right"></i>
+                                       </a>
+                                    </li>
+                                    <li>
+                                       <a href="blog.html">1</a>
+                                    </li>
+                                    <li>
+                                       <a href="blog.html" class="active">2</a>
+                                    </li>
+                                    <li>
+                                       <a href="blog.html">3</a>
+                                    </li>
+                                    <li>
+                                       <a href="blog.html">
+                                          <i class="far fa-angle-left"></i>
+                                       </a>
+                                    </li>
+                                 </ul>
+                              </nav>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-xxl-4 col-xl-4 col-lg-4">
+                        <div class="sidebar__wrapper-2">
+                           <div class="sidebar__widget mb-40">
+                              <div class="sidebar__widget-content">
+                                 <div class="sidebar__search-2">
+                                    <form action="#">
+                                       <div class="sidebar__search-input-2">
+                                          <input type="text" placeholder="جستجو">
+                                          <button type="submit"><i class="far fa-search"></i></button>
+                                       </div>
+                                    </form>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="sidebar__widget mb-40">
+                              <div class="sidebar__widget-top mb-30">
+                                 <h3 class="sidebar__widget-title">پست های اخیر</h3>
+                              </div>
+                              <div class="sidebar__widget-content">
+                                 <div class="sidebar__post rc__post">
+                                    <ul>
+                                       <li>
+                                          <div class="rc__post d-flex align-items-center">
+                                             <div class="rc__post-thumb mr-20">
+                                                <img src="{% static 'img/blog/sidebar/blog-sm-1.jpg' %}" alt="">
+                                             </div>
+                                             <div class="rc__post-content">
+                                                <h3 class="rc__post-title">
+                                                   <a href="blog-details.html">فواید استخدام تمیز کننده</a>
+                                                </h3>
+                                                <div class="rc__meta">
+                                                   <span>21 مهر 1401</span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </li>
+                                       <li>
+                                          <div class="rc__post d-flex align-items-center">
+                                             <div class="rc__post-thumb mr-20">
+                                                <img src="{% static 'img/blog/sidebar/blog-sm-2.jpg' %}" alt="">
+                                             </div>
+                                             <div class="rc__post-content">
+                                                <h3 class="rc__post-title">
+                                                   <a href="blog-details.html">چند بار باید برنامه ریزی حرفه ای داشته باشید</a>
+                                                </h3>
+                                                <div class="rc__meta">
+                                                   <span>21 مهر 1401</span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </li>
+                                       <li>
+                                          <div class="rc__post d-flex align-items-center">
+                                             <div class="rc__post-thumb mr-20">
+                                                <img src="{% static 'img/blog/sidebar/blog-sm-3.jpg' %}" alt="">
+                                             </div>
+                                             <div class="rc__post-content">
+                                                <h3 class="rc__post-title">
+                                                   <a href="blog-details.html">ایمن نگه داشتن خانه</a>
+                                                </h3>
+                                                <div class="rc__meta">
+                                                   <span>21 مهر 1401</span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="sidebar__widget mb-40">
+                              <div class="sidebar__widget-top mb-30">
+                                 <h3 class="sidebar__widget-title">دسته بندی</h3>
+                              </div>
+                              <div class="sidebar__widget-content">
+                                 <div class="sidebar__category">
+                                    <ul>
+                                       <li><a href="blog.html">شرکت</a></li>
+                                       <li><a href="blog.html">تمیزی</a></li>
+                                       <li><a href="blog.html">مشاوره</a></li>
+                                       <li><a href="blog.html">خلاق</a></li>
+                                       <li><a href="blog.html">تکنولوژی</a></li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="sidebar__widget mb-40">
+                              <div class="sidebar__widget-top mb-30">
+                                 <h3 class="sidebar__widget-title">برچسب ها</h3>
+                              </div>
+                              <div class="sidebar__widget-content">
+                                 <div class="sidebar__tag">
+                                    <a href="#">شرکت</a>
+                                    <a href="#">تمیز</a>
+                                    <a href="#">مشاوره</a>
+                                    <a href="#">طراحی</a>
+                                    <a href="#">کیبرد</a>
+                                    <a href="#">کیت</a>
+                                    <a href="#">موس</a>
+                                    <a href="#">معروف</a>
+                                    <a href="#"> خانه </a>
+                                    <a href="#">تک</a>
+                                    <a href="#">دسترسی</a>
+                                    <a href="#">یو ایکس</a>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="sidebar__banner w-img p-relative text-center">
+                              <img src="{% static 'img/blog/sidebar/sidebar-banner-1.jpg' %}" alt="">
+                              <div class="sidebar__banner-content">
+                                 <h4>افزودن بنر</h4>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <!-- blog area end -->
+
+      </main>
+
+{% endblock %}
