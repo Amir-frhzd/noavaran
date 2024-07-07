@@ -153,7 +153,7 @@
                            <h3 class="page__title">بلاگ</h3>
                            <nav aria-label="breadcrumb">
                               <ol class="breadcrumb">
-                              <li class="breadcrumb-item"><a href="index.html"> خانه </a></li>
+                              <li class="breadcrumb-item"><a href="{% url 'website:index' %}"> خانه </a></li>
                               <li class="breadcrumb-item active" aria-current="page">بلاگ</li>
                               </ol>
                            </nav>
@@ -173,17 +173,17 @@
                            <article class="postbox__item postbox__item-single format-image mb-50 transition-3">
                               <div class="postbox__thumb w-img">
                                  <a href="blog-details.html">
-                                    <img src="{% static 'img/blog/blog-big-1.jpg' %}" alt="">
+                                    <img src="{{post.img.url}}" alt="">
                                  </a>
                               </div>
                               <div class="postbox__content postbox__content-single">
                                  <div class="postbox__meta">
-                                    <span><i class="far fa-calendar-check"></i> 21 دی 1401 </span>
+                                    <span><i class="far fa-calendar-check"></i>{{post.created_date}}</span>
                                     <span><a href="#"><i class="far fa-user"></i> شهناز</a></span>
                                     <span><a href="#"><i class="fal fa-comments"></i> 02 نظرات</a></span>
                                  </div>
                                  <h3 class="postbox__title">
-                                    <a href="blog-details.html">چگونه خانه خود را سریعتر و کارآمدتر تمیز کنیم</a>
+                                    <a href="blog-details.html">{{post.title}}</a>
                                  </h3>
                                  <div class="postbox__text postbox__text-single mb-35">
                                     <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
@@ -256,117 +256,11 @@
                      </div>
                      <div class="col-xxl-4 col-xl-4 col-lg-4">
                         <div class="sidebar__wrapper-2">
-                           <div class="sidebar__widget mb-40">
-                              <div class="sidebar__widget-content">
-                                 <div class="sidebar__search-2">
-                                    <form action="#">
-                                       <div class="sidebar__search-input-2">
-                                          <input type="text" placeholder="جستجو">
-                                          <button type="submit"><i class="far fa-search"></i></button>
-                                       </div>
-                                    </form>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="sidebar__widget mb-40">
-                              <div class="sidebar__widget-top mb-30">
-                                 <h3 class="sidebar__widget-title">پست های اخیر</h3>
-                              </div>
-                              <div class="sidebar__widget-content">
-                                 <div class="sidebar__post rc__post">
-                                    <ul>
-                                       <li>
-                                          <div class="rc__post d-flex align-items-center">
-                                             <div class="rc__post-thumb mr-20">
-                                                <img src="{% static 'img/blog/sidebar/blog-sm-1.jpg' %}" alt="">
-                                             </div>
-                                             <div class="rc__post-content">
-                                                <h3 class="rc__post-title">
-                                                   <a href="blog-details.html">فواید استخدام تمیز کننده</a>
-                                                </h3>
-                                                <div class="rc__meta">
-                                                   <span>21 مهر 1401</span>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </li>
-                                       <li>
-                                          <div class="rc__post d-flex align-items-center">
-                                             <div class="rc__post-thumb mr-20">
-                                                <img src="{% static 'img/blog/sidebar/blog-sm-2.jpg' %}" alt="">
-                                             </div>
-                                             <div class="rc__post-content">
-                                                <h3 class="rc__post-title">
-                                                   <a href="blog-details.html">چند بار باید برنامه ریزی حرفه ای داشته باشید</a>
-                                                </h3>
-                                                <div class="rc__meta">
-                                                   <span>21 مهر 1401</span>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </li>
-                                       <li>
-                                          <div class="rc__post d-flex align-items-center">
-                                             <div class="rc__post-thumb mr-20">
-                                                <img src="{% static 'img/blog/sidebar/blog-sm-3.jpg' %}" alt="">
-                                             </div>
-                                             <div class="rc__post-content">
-                                                <h3 class="rc__post-title">
-                                                   <a href="blog-details.html">ایمن نگه داشتن خانه</a>
-                                                </h3>
-                                                <div class="rc__meta">
-                                                   <span>21 مهر 1401</span>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </li>
-                                    </ul>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="sidebar__widget mb-40">
-                              <div class="sidebar__widget-top mb-30">
-                                 <h3 class="sidebar__widget-title">دسته بندی</h3>
-                              </div>
-                              <div class="sidebar__widget-content">
-                                 <div class="sidebar__category">
-                                    <ul>
-                                       <li><a href="blog.html">شرکت</a></li>
-                                       <li><a href="blog.html">تمیزی</a></li>
-                                       <li><a href="blog.html">مشاوره</a></li>
-                                       <li><a href="blog.html">خلاق</a></li>
-                                       <li><a href="blog.html">تکنولوژی</a></li>
-                                    </ul>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="sidebar__widget mb-40">
-                              <div class="sidebar__widget-top mb-30">
-                                 <h3 class="sidebar__widget-title">برچسب ها</h3>
-                              </div>
-                              <div class="sidebar__widget-content">
-                                 <div class="sidebar__tag">
-                                    <a href="#">شرکت</a>
-                                    <a href="#">تمیز</a>
-                                    <a href="#">مشاوره</a>
-                                    <a href="#">طراحی</a>
-                                    <a href="#">کیبرد</a>
-                                    <a href="#">کیت</a>
-                                    <a href="#">موس</a>
-                                    <a href="#">معروف</a>
-                                    <a href="#"> خانه </a>
-                                    <a href="#">تک</a>
-                                    <a href="#">دسترسی</a>
-                                    <a href="#">یو ایکس</a>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="sidebar__banner w-img p-relative text-center">
-                              <img src="{% static 'img/blog/sidebar/sidebar-banner-1.jpg' %}" alt="">
-                              <div class="sidebar__banner-content">
-                                 <h4>افزودن بنر</h4>
-                              </div>
-                           </div>
+                        {% include 'blog/blog-search.html' %}
+                        {% include 'blog/blog-latest-post.html' %}   
+                        {% include 'blog/blog-category-post.html' %}
+                        {% include 'blog/blog-tags.html' %}
+                        {% include 'blog/blog-adv.html' %}
                         </div>
                      </div>
                   </div>

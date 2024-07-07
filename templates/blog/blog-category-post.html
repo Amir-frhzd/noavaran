@@ -1,0 +1,16 @@
+{% load static %}
+<div class="sidebar__widget mb-40">
+    <div class="sidebar__widget-top mb-30">
+       <h3 class="sidebar__widget-title">دسته بندی</h3>
+    </div>
+    <div class="sidebar__widget-content">
+       <div class="sidebar__category">
+          <ul>
+          {% for cat in categories %}
+             <li><a href="{% url 'blog:category' cat_name=cat.name %}">{{cat.name}}</a></li>
+          {% endfor %}  
+    
+          </ul>
+       </div>
+    </div>
+ </div>
