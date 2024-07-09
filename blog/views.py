@@ -1,10 +1,10 @@
 from django.shortcuts import render,get_object_or_404
 from .models import Post,Category
 # Create your views here.
-def blog_view(request,cat_name=None):
+def blog_view(request,slug=None):
     posts=Post.objects.filter(status=1)
-    if cat_name:
-        posts=posts.filter(category__name=cat_name)
+    if slug:
+        posts=posts.filter(category__slug=slug)
     categories=Category.objects.all()
     context={'posts':posts,'categories':categories}
     return render(request,'blog/blog.html',context)

@@ -1,8 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django_extensions.db.fields import AutoSlugField
+from django.utils.text import slugify
 # Create your models here.
 class Category(models.Model):
     name=models.CharField(max_length=255)
+    slug =models.SlugField(max_length=100, unique=True,blank=True,null=True,allow_unicode=True)
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name,allow_unicode=True)
+        super().save(*args, **kwargs)
     def __str__(self):
         return self.name
 class Post(models.Model):

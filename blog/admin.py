@@ -9,5 +9,8 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ['status']
     #ordering=['-created_date']
     search_fields = ["title"]
+class CategoryAdmin(admin.ModelAdmin):
+    list_display =['name','slug']
+    prepopulated_fields={'slug':('name',)}
 admin.site.register(Post,PostAdmin)
-admin.site.register(Category)
+admin.site.register(Category,CategoryAdmin)
