@@ -26,4 +26,4 @@ class Post(models.Model):
     published_date=models.DateTimeField(null=True)
 
     class Meta:
-        ordering=['created_date']
+        ordering=['-created_date']

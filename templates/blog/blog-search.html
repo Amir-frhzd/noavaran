@@ -2,9 +2,9 @@
 <div class="sidebar__widget mb-40">
     <div class="sidebar__widget-content">
        <div class="sidebar__search-2">
-          <form action="#">
+          <form action="{% url 'blog:search' %}" method="get">
              <div class="sidebar__search-input-2">
-                <input type="text" placeholder="جستجو">
+                <input type="text" placeholder="جستجو" name="s">
                 <button type="submit"><i class="far fa-search"></i></button>
              </div>
           </form>

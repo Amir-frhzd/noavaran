@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load blog-tags %}
 {% block content %}
       <!-- offcanvas area start -->
       <div class="offcanvas__area">
@@ -179,15 +180,15 @@
                               </div>
                               <div class="postbox__content">
                                  <div class="postbox__meta">
-                                    <span><i class="far fa-calendar-check"></i> {{post.created_date|date:"D d M Y"}}</span>
-                                    <span><a href="#"><i class="far fa-user"></i>{{post.author.first_name}}</a></span>
+                                    <span><i class="far fa-calendar-check"></i> {{post.created_date|date:"d M Y"}}</span>
+                                    <span><a href="{% url 'blog:author' str=post.author.first_name %}"><i class="far fa-user"></i>{{post.author.first_name}}</a></span>
                                     <span><a href="#"><i class="fal fa-comments"></i> 02 نظرات</a></span>
                                  </div>
                                  <h3 class="postbox__title">
                                     <a href="{% url 'blog:single' pid=post.id%}">{{post.title}}</a>
                                  </h3>
                                  <div class="postbox__text">
-                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.  […]</p>
+                                    <p>{{post.content|snippet:50}}</p>
                                  </div>
                                  <div class="postbox__read-more">
                                     <a href="{% url 'blog:single' pid=post.id %}" class="d-btn d-btn-3 d-btn-orange">بیشتر بخوانید </a>
@@ -225,7 +226,7 @@
                      <div class="col-xxl-4 col-xl-4 col-lg-4">
                         <div class="sidebar__wrapper-2">
                            {% include 'blog/blog-search.html' %}
-                           {% include 'blog/blog-latest-post.html' %}
+                           {% latestposts %}
                            {% include 'blog/blog-category-post.html' %}
                            {% include 'blog/blog-tags.html' %}
                            {% include 'blog/blog-adv.html' %}

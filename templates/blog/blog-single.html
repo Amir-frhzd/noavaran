@@ -179,14 +179,14 @@
                               <div class="postbox__content postbox__content-single">
                                  <div class="postbox__meta">
                                     <span><i class="far fa-calendar-check"></i>{{post.created_date}}</span>
-                                    <span><a href="#"><i class="far fa-user"></i> شهناز</a></span>
+                                    <span><a href="#"><i class="far fa-user"></i>{{post.author.first_name}}</a></span>
                                     <span><a href="#"><i class="fal fa-comments"></i> 02 نظرات</a></span>
                                  </div>
                                  <h3 class="postbox__title">
                                     <a href="blog-details.html">{{post.title}}</a>
                                  </h3>
                                  <div class="postbox__text postbox__text-single mb-35">
-                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                                    <p>{{post.content}}</p>
                                  </div>
                                  <div class="postbox__quote p-relative z-index-1 text-center mb-35">
                                     <blockquote>
