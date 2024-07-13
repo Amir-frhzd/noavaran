@@ -5,18 +5,9 @@
     </div>
     <div class="sidebar__widget-content">
        <div class="sidebar__tag">
-          <a href="#">شرکت</a>
-          <a href="#">تمیز</a>
-          <a href="#">مشاوره</a>
-          <a href="#">طراحی</a>
-          <a href="#">کیبرد</a>
-          <a href="#">کیت</a>
-          <a href="#">موس</a>
-          <a href="#">معروف</a>
-          <a href="#"> خانه </a>
-          <a href="#">تک</a>
-          <a href="#">دسترسی</a>
-          <a href="#">یو ایکس</a>
+         {% for tag in tags %}
+         <a href="{% url 'blog:tag' tag.name %}">{{tag.name}}</a>
+         {% endfor %}
        </div>
     </div>
  </div>

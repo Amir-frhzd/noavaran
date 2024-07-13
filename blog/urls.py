@@ -5,6 +5,7 @@ urlpatterns = [
     path('',blog_view,name='blog'),
     #path('category/<slug:category_slug>',blog_view,name='category'),
     re_path(r'^category/(?P<slug>[-\w]+)/',blog_view,name='category'),
+    path('tag/<str:tag_name>',blog_view,name='tag'),
     path('author/<str:str>',blog_view,name='author'),
     path('<int:pid>',single_view,name='single'),
     path('search/',search_view,name='search')

@@ -208,12 +208,9 @@
                                  </div>
                                  <div class="postbox__tag mb-40">
                                     <h4> تگ ها</h4>
-                                    <a href="#">شرکت</a>
-                                    <a href="#">مشاوره</a>
-                                    <a href="#">کیبرد</a>
-                                    <a href="#">کیت</a>
-                                    <a href="#">موس</a>
-                                    <a href="#">تک</a>
+                                    {% for tag in tags %}
+                                    <a href="#">{{tag.name}}</a>
+                                    {% endfor %}
                                  </div>
    
                                  <div class="postbox__comment">
