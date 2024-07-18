@@ -182,7 +182,7 @@
                                  <div class="postbox__meta">
                                     <span><i class="far fa-calendar-check"></i> {{post.created_date|date:"d M Y"}}</span>
                                     <span><a href="{% url 'blog:author' str=post.author.first_name %}"><i class="far fa-user"></i>{{post.author.first_name}}</a></span>
-                                    <span><a href="#"><i class="fal fa-comments"></i> 02 نظرات</a></span>
+                                    <span><a href="#"><i class="fal fa-comments"></i>{% comment_count post.id %}</a></span>
                                  </div>
                                  <h3 class="postbox__title">
                                     <a href="{% url 'blog:single' pid=post.id%}">{{post.title}}</a>

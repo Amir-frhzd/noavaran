@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post,Category
+from .models import Post,Category,Comment
 # Register your models here.
 class PostAdmin(admin.ModelAdmin):
     date_hierarchy = "published_date"
@@ -11,5 +11,8 @@ class PostAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display =['name','slug']
     prepopulated_fields={'slug':('name',)}
+class CommentAdmin(admin.ModelAdmin):
+    list_display =['name','email','message','created_date','update_date',]
+admin.site.register(Comment,CommentAdmin)
 admin.site.register(Post,PostAdmin)
 admin.site.register(Category,CategoryAdmin)

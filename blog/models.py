@@ -28,3 +28,11 @@ class Post(models.Model):
 
     class Meta:
         ordering=['-created_date']
+class Comment(models.Model):
+    post=models.ForeignKey(Post,on_delete=models.CASCADE)
+    name=models.CharField(max_length=255)
+    email=models.EmailField()
+    message=models.TextField()
+    created_date=models.DateTimeField(auto_now_add=True)
+    update_date=models.DateTimeField(auto_now_add=True)
+    approved=models.BooleanField(default=False)

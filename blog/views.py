@@ -1,8 +1,9 @@
 from django.shortcuts import render,get_object_or_404
-from .models import Post,Category
+from .models import Post,Category,Comment
 from taggit.models import Tag
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 from django.utils import timezone
+from .forms import CommentForm
 # Create your views here.
 def blog_view(request,slug=None,str=None,tag_name=None):
     posts=Post.objects.filter(status=1,published_date__lte=timezone.now())
@@ -26,13 +27,19 @@ def blog_view(request,slug=None,str=None,tag_name=None):
     return render(request,'blog/blog.html',context)
 
 def single_view(request,pid):
+    if request.method == 'POST':
+        form=CommentForm(request.POST)
+        if form.is_valid():
+            form.save()
+
     posts=get_object_or_404(Post,pk=pid,status=1,published_date__lte=timezone.now())
     if posts:
         posts.counted_view += 1
         posts.save()
     tags =posts.tags.all()
     categories=posts.category.all()
-    context={'post':posts,'tags':tags,'categories':categories}
+    form=CommentForm()
+    context={'post':posts,'tags':tags,'categories':categories,'form':form}
     return render(request,'blog/blog-single.html',context)
 def search_view(request):
     posts=Post.objects.filter(status=1)

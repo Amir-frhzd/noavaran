@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load blog-tags %}
 {% block content %}
       <!-- offcanvas area start -->
       <div class="offcanvas__area">
@@ -180,7 +181,7 @@
                                  <div class="postbox__meta">
                                     <span><i class="far fa-calendar-check"></i>{{post.created_date}}</span>
                                     <span><a href="#"><i class="far fa-user"></i>{{post.author.first_name}}</a></span>
-                                    <span><a href="#"><i class="fal fa-comments"></i> 02 نظرات</a></span>
+                                    <span><a href="#"><i class="fal fa-comments"></i>{% comment_count post.id %}</a></span>
                                  </div>
                                  <h3 class="postbox__title">
                                     <a href="blog-details.html">{{post.title}}</a>
@@ -188,6 +189,15 @@
                                  <div class="postbox__text postbox__text-single mb-35">
                                     <p>{{post.content}}</p>
                                  </div>
+                                 <!--
+                                 <div class="postbox__tag mb-40">
+                                    <h4> تگ ها</h4>
+                                    {% for tag in tags %}
+                                    <a href="#">{{tag.name}}</a>
+                                    {% endfor %}
+                                 </div>
+                              -->
+                                 <!--
                                  <div class="postbox__quote p-relative z-index-1 text-center mb-35">
                                     <blockquote>
                                        <h4>توسط شهناز ساما</h4>
@@ -197,6 +207,9 @@
                                        </div>
                                     </blockquote>
                                  </div>
+                              -->
+                                 {% detail_comment post.id %}
+                                 <!--
                                  <div class="postbox__text postbox__text-single mb-35">
                                     <p>برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. </p>
                                  </div>
@@ -206,42 +219,45 @@
                                  <div class="postbox__text postbox__text-single mb-55">
                                     <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.  </p>
                                  </div>
-                                 <div class="postbox__tag mb-40">
-                                    <h4> تگ ها</h4>
-                                    {% for tag in tags %}
-                                    <a href="#">{{tag.name}}</a>
-                                    {% endfor %}
-                                 </div>
+                              
+                              -->
    
                                  <div class="postbox__comment">
                                     <div class="postbox__comment-top mb-35">
-                                       <h3 class="postbox__comment-title"> پاسخ </h3>
+                                       <h3 class="postbox__comment-title">نظرات شما</h3>
                                     </div>
                                     <div class="postbox__comment-form">
-                                       <form action="#">
+                                       
+                                       
+                                       <form action="{% url 'blog:single' post.id %}" method="POST">
+                                          {% csrf_token %}
                                           <div class="row">
                                              <div class="col-xxl-6">
                                                 <div class="postbox__comment-input">
                                                    <span>اسم شما*</span>
-                                                   <input type="text">
+                                                   <input name="name" type="text">
+                                                   <input type="hidden"  name="post" value={{post.id}}>
                                                 </div>
                                              </div>
                                              <div class="col-xxl-6">
                                                 <div class="postbox__comment-input">
                                                    <span>ایمیل شما*</span>
-                                                   <input type="text">
+                                                   <input name="email" type="email">
                                                 </div>
                                              </div>
                                              <div class="col-xxl-12">
                                                 <div class="postbox__comment-input">
                                                    <span>نظر*</span>
-                                                   <textarea></textarea>
+                                                   <textarea name="message"></textarea>
                                                 </div>
                                              </div>
                                              <div class="col-xxl-12">
+                                       
+                                             
                                                 <div class="postbox__comment-btn">
                                                    <button type="submit" class="d-btn d-btn-3 d-btn-orange">ارسال نظر <i class="far fa-arrow-left"></i></button>
                                                 </div>
+                                             
                                              </div>
                                           </div>
                                        </form>
