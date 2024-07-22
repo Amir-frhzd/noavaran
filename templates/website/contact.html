@@ -12,7 +12,7 @@
             <div class="offcanvas__content">
                <div class="offcanvas__logo mb-40">
                   <a href="index.html">
-                  <img src="assets/img/logo/logo-black.png" alt="logo">
+                  <img src="{% static 'img/logo/logo-black.png' %}" alt="logo">
                   </a>
                </div>
                <div class="offcanvas__search mb-25">
@@ -29,43 +29,43 @@
                   <div class="row gx-2">
                      <div class="col-4">
                         <div class="offcanvas__single-img w-img mb-10">
-                           <a class="popup-img" href="assets/img/offcanvas/offcanvas-1.jpg">
-                              <img src="assets/img/offcanvas/offcanvas-1.jpg" alt="">
+                           <a class="popup-img" href="{% static 'img/offcanvas/offcanvas-1.jpg' %}">
+                              <img src="{% static 'img/offcanvas/offcanvas-1.jpg' %}" alt="">
                            </a>
                         </div>
                      </div>
                      <div class="col-4">
                         <div class="offcanvas__single-img w-img mb-10">
-                           <a class="popup-img" href="assets/img/offcanvas/offcanvas-2.jpg">
-                              <img src="assets/img/offcanvas/offcanvas-2.jpg" alt="">
+                           <a class="popup-img" href="{% static 'img/offcanvas/offcanvas-2.jpg' %}">
+                              <img src="{% static 'img/offcanvas/offcanvas-2.jpg' %}" alt="">
                            </a>
                         </div>
                      </div>
                      <div class="col-4">
                         <div class="offcanvas__single-img w-img mb-10">
-                           <a class="popup-img" href="assets/img/offcanvas/offcanvas-3.jpg">
-                              <img src="assets/img/offcanvas/offcanvas-3.jpg" alt="">
+                           <a class="popup-img" href="{% static 'img/offcanvas/offcanvas-3.jpg' %}">
+                              <img src="{% static 'img/offcanvas/offcanvas-3.jpg' %}" alt="">
                            </a>
                         </div>
                      </div>
                      <div class="col-4">
                         <div class="offcanvas__single-img w-img mb-10">
-                           <a class="popup-img" href="assets/img/offcanvas/offcanvas-4.jpg">
-                              <img src="assets/img/offcanvas/offcanvas-4.jpg" alt="">
+                           <a class="popup-img" href="{% static 'img/offcanvas/offcanvas-4.jpg' %}">
+                              <img src="{% static 'img/offcanvas/offcanvas-4.jpg' %}" alt="">
                            </a>
                         </div>
                      </div>
                      <div class="col-4">
                         <div class="offcanvas__single-img w-img mb-10">
-                           <a class="popup-img" href="assets/img/offcanvas/offcanvas-5.jpg">
-                              <img src="assets/img/offcanvas/offcanvas-5.jpg" alt="">
+                           <a class="popup-img" href="{% static 'img/offcanvas/offcanvas-5.jpg' %}">
+                              <img src="{% static 'img/offcanvas/offcanvas-5.jpg' %}" alt="">
                            </a>
                         </div>
                      </div>
                      <div class="col-4">
                         <div class="offcanvas__single-img w-img mb-10">
-                           <a class="popup-img" href="assets/img/offcanvas/offcanvas-6.jpg">
-                              <img src="assets/img/offcanvas/offcanvas-6.jpg" alt="">
+                           <a class="popup-img" href="{% static 'img/offcanvas/offcanvas-6.jpg' %}">
+                              <img src="{% static 'img/offcanvas/offcanvas-6.jpg' %}" alt="">
                            </a>
                         </div>
                      </div>
@@ -145,7 +145,7 @@
       <main>
 
             <!-- page title area start -->
-            <section class="page__title-area pt-145 pb-150 p-relative page__title-overlay" data-background="assets/img/page-title/page-title-1.jpg">
+            <section class="page__title-area pt-145 pb-150 p-relative page__title-overlay" data-background="{% static 'img/page-title/page-title-1.jpg' %}">
                <div class="container">
                   <div class="row">
                      <div class="col-xxl-12">
@@ -163,7 +163,7 @@
                </div>
             </section>
             <!-- page title area end -->
-
+            {% include 'message.html' %}
             <!-- contact area start -->
             <section class="contact__area grey-bg-13 pt-120 pb-120">
                <div class="container">
@@ -171,37 +171,37 @@
                      <div class="col-xxl-8 col-xl-8 col-lg-8">
                         <div class="contact__form contact__form-2 white-bg">
                            <h3 class="contact-form-title">در تماس باشید</h3>
-                           <form action="#">
+                           <form action="{% url 'website:contact' %}" method="post">
+                              {% csrf_token %}
                               <div class="row">
                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                     <div class="contact__input contact__input-2 mb-30">
-                                       <input type="text" placeholder="نام">
+                                       <input type="text" name="name" placeholder="نام">
                                     </div>
                                  </div>
                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                     <div class="contact__input contact__input-2 mb-30">
-                                       <input type="email" placeholder="پست الکترونیک">
+                                       <input type="email" name="email" placeholder="پست الکترونیک">
                                     </div>
                                  </div>
                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                     <div class="contact__input contact__input-2 mb-30">
-                                       <input type="tel" placeholder="تلفن">
+                                       <input type="tel" name="phone" placeholder="تلفن">
                                     </div>
                                  </div>
                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                     <div class="contact__input contact__input-2 mb-30">
-                                       <select>
-                                          <option>موضوع</option>
-                                          <option>گرینه 1</option>
-                                          <option>گرینه 2</option>
-                                          <option>گرینه 3</option>
-                                          <option>گرینه 4</option>
-                                       </select>
+                                       <input type="text" name="subject" placeholder="موضوع">
                                     </div>
                                  </div>
                                  <div class="col-xxl-12">
                                     <div class="contact__input contact__input-2 mb-30">
-                                       <textarea placeholder="پیام"></textarea>
+                                       <textarea placeholder="پیام" name="message"></textarea>
+                                    </div>
+                                 </div>
+                                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                                    <div class="contact__input contact__input-2 mb-30">
+                                       {{form.captcha}}
                                     </div>
                                  </div>
                                  <div class="col-xl-12">
@@ -213,6 +213,7 @@
                                  </div>
                               </div>
                            </form>
+                  
                         </div>
                      </div>
                      <div class="col-xxl-4 col-xl-4 col-lg-4">
@@ -221,7 +222,7 @@
                            <ul class="mb-20">
                               <li class="d-flex">
                                  <div class="contact__info-icon mr-20">
-                                    <img src="assets/img/icon/email.png" alt="">
+                                    <img src="{% static 'img/icon/email.png' %}" alt="">
                                  </div>
                                  <div class="contact__info-text">
                                     <p>ایمیل به ما</p>
@@ -232,7 +233,7 @@
                               </li>
                               <li class="d-flex">
                                  <div class="contact__info-icon mr-20">
-                                    <img src="assets/img/icon/call.png" alt="">
+                                    <img src="{% static 'img/icon/call.png' %}" alt="">
                                  </div>
                                  <div class="contact__info-text">
                                     <p>تماس با ما</p>
@@ -243,7 +244,7 @@
                               </li>
                               <li class="d-flex">
                                  <div class="contact__info-icon mr-20">
-                                    <img src="assets/img/icon/location.png" alt="">
+                                    <img src="{% static 'img/icon/location.png' %}" alt="">
                                  </div>
                                  <div class="contact__info-text">
                                     <p>آدرس ما</p>
@@ -256,7 +257,7 @@
                            <div class="contact__info-chat pr-30">
                               <h4 class="mt-25">چت زنده</h4>
                               <p>می توانید در چت با ما تماس بگیرید و مشکلات خود را توضیح دهید</p>
-                              <a href="#"><img src="assets/img/icon/chatting-2.png" alt=""> <span>چت زنده </span></a>
+                              <a href="#"><img src="{% static 'img/icon/chatting-2.png' %}" alt=""> <span>چت زنده </span></a>
                            </div>
                         </div>
                      </div>
@@ -286,19 +287,19 @@
                      <div class="col-xxl-12">
                         <div class="brand__slider-4 owl-carousel">
                            <div class="brand__item-4 text-center">
-                              <img src="assets/img/brand/4/brand-1.png" alt="">
+                              <img src="{% static 'img/brand/4/brand-1.png' %}" alt="">
                            </div>
                            <div class="brand__item-4 text-center">
-                              <img src="assets/img/brand/4/brand-2.png" alt="">
+                              <img src="{% static 'img/brand/4/brand-2.png' %}" alt="">
                            </div>
                            <div class="brand__item-4 text-center">
-                              <img src="assets/img/brand/4/brand-3.png" alt="">
+                              <img src="{% static 'img/brand/4/brand-3.png' %}" alt="">
                            </div>
                            <div class="brand__item-4 text-center">
-                              <img src="assets/img/brand/4/brand-4.png" alt="">
+                              <img src="{% static 'img/brand/4/brand-4.png' %}" alt="">
                            </div>
                            <div class="brand__item-4 text-center">
-                              <img src="assets/img/brand/4/brand-5.png" alt="">
+                              <img src="{% static 'img/brand/4/brand-5.png' %}" alt="">
                            </div>
                         </div>
                      </div>

@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django_extensions.db.fields import AutoSlugField
 from django.utils.text import slugify
 from taggit.managers import TaggableManager
+from django.urls import reverse
 # Create your models here.
 class Category(models.Model):
     name=models.CharField(max_length=255)
@@ -25,6 +26,10 @@ class Post(models.Model):
     created_date=models.DateTimeField(auto_now_add=True)
     update_date=models.DateTimeField(auto_now=True)
     published_date=models.DateTimeField(null=True)
+
+
+    def get_absolute_url(self):
+        return reverse('blog:single', kwargs={'pid': self.id})
 
     class Meta:
         ordering=['-created_date']

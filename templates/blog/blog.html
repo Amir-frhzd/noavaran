@@ -188,7 +188,8 @@
                                     <a href="{% url 'blog:single' pid=post.id%}">{{post.title}}</a>
                                  </h3>
                                  <div class="postbox__text">
-                                    <p>{{post.content|snippet:50}}</p>
+                                    <p>{{post.content|snippet:500}}</p>
+                                 
                                  </div>
                                  <div class="postbox__read-more">
                                     <a href="{% url 'blog:single' pid=post.id %}" class="d-btn d-btn-3 d-btn-orange">بیشتر بخوانید </a>

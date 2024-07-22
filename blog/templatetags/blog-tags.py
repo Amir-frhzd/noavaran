@@ -1,11 +1,17 @@
 from django import template
 from django.utils import timezone
 from blog.models import Category,Post,Comment
+from bs4 import BeautifulSoup
 register = template.Library()
 
 @register.filter
 def snippet(value,arg=20):
-    return value[:arg] + ('...' if len(value) > arg else '')
+    if not value:
+        return ''
+    soup=BeautifulSoup(value,'html.parser')
+    txt=soup.get_text()
+    return txt[:arg]+ (' ...' if len(value) > arg else '')
+    #return value[:arg] + ('...' if len(value) > arg else '')
 
 @register.inclusion_tag('blog/blog-latest-post.html')
 def latestposts():
