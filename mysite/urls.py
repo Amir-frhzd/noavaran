@@ -38,6 +38,7 @@ urlpatterns = [
     path('__debug__',include(debug_toolbar.urls)),
     path('summernote/', include('django_summernote.urls')),
     path('captcha/', include('captcha.urls')),
+    path('accounts/',include('accounts.urls')),
 ]
 from django.conf import settings
 from django.conf.urls.static import static
