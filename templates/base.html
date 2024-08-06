@@ -87,21 +87,22 @@
                      </div>
                      <div class="col-xxl-6 col-xl-4 col-lg-3">
                         <div class="header__top-right text-rubik-all d-flex align-items-center justify-content-end">
-                           <div class="header__lang header__lang-8 d-none d-xl-flex align-items-center">
-                              <img class="translate-img" src="{% static 'img/icon/translate-8.png' %}" alt="">
-                              <select>
-                                 <option>انگلیسی</option>
-                                 <option>انگلیسی</option>
-                                 <option>انگلیسی</option>
-                                 <option>انگلیسی</option>
-                              </select>
-                           </div>
+       
+                           {% if request.user.is_authenticated %}
                            <div class="header__login header__login-8 pl-25 ml-25">
                               <span>
-                                 <a href="#">ورود / </a>
-                                 <a href="#">ثبت نام </a>
+                                 <a href="#">{{request.user.first_name}} / </a>
+                                 <a href="{% url 'accounts:logout' %}">خروج</a>
                               </span>
                            </div>
+                           {% else %}
+                           <div class="header__login header__login-8 pl-25 ml-25">
+                              <span>
+                                 <a href="{% url 'accounts:login' %}">ورود / </a>
+                                 <a href="{% url 'accounts:signup' %}">ثبت نام </a>
+                              </span>
+                           </div>
+                        {% endif %}
                         </div>
                      </div>
                   </div>
@@ -125,7 +126,7 @@
                               <nav id="mobile-menu">
                                  <ul>
                                     <li>
-                                       <a href="{% url 'website:index' %}"> خانه <i class="far fa-plus"></i></a>
+                                       <a href="{% url 'website:index' %}"> خانه </a>
 
                                     </li>
                                     <li>
@@ -146,23 +147,7 @@
                                  </ul>
                               </nav>
                            </div>
-                           <div class="header__action header__action-8">
-                              <ul>
-                                 <li class="d-none d-sm-inline-block">
-                                    <a href="javascript:void(0)" class="search-toggle">
-                                       <i class="flaticon-search"></i>
-                                    </a>
-                                 </li>
-                                 <li class="d-none d-sm-inline-block">
-                                    <a href="#" class="cart-btn"><i class="flaticon-shopping-cart"></i></a>
-                                 </li>
-                                 <li class="d-lg-none">
-                                    <a href="javascript:void(0)" class="offcanvas-toggle-btn">
-                                       <i class="flaticon-menu"></i>
-                                    </a>
-                                 </li>
-                              </ul>
-                           </div>
+                         
                         </div>
                      </div>
                   </div>
@@ -171,7 +156,7 @@
          </div>
       </header>
       <!-- header area end -->
-      
+      {% include 'messages.html' %}
       {% block content %}
       {% endblock content %}
       <footer>

@@ -163,7 +163,7 @@
                </div>
             </section>
             <!-- page title area end -->
-            {% include 'message.html' %}
+            <!--{% include 'messages.html' %}-->
             <!-- contact area start -->
             <section class="contact__area grey-bg-13 pt-120 pb-120">
                <div class="container">
@@ -171,12 +171,56 @@
                      <div class="col-xxl-8 col-xl-8 col-lg-8">
                         <div class="contact__form contact__form-2 white-bg">
                            <h3 class="contact-form-title">در تماس باشید</h3>
+                           {% if request.user.is_authenticated %}
                            <form action="{% url 'website:contact' %}" method="post">
                               {% csrf_token %}
                               <div class="row">
                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                     <div class="contact__input contact__input-2 mb-30">
-                                       <input type="text" name="name" placeholder="نام">
+                                       <input type="hidden" name='name' value={{request.user.first_name}} placeholder="نام">
+                                    </div>
+                                 </div>
+                                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                                    <div class="contact__input contact__input-2 mb-30">
+                                       <input type="hidden" name="email" value={{request.user.email}} placeholder="پست الکترونیک">
+                                    </div>
+                                 </div>
+                                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                                    <div class="contact__input contact__input-2 mb-30">
+                                       <input type="tel" name="phone" placeholder="تلفن">
+                                    </div>
+                                 </div>
+                                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                                    <div class="contact__input contact__input-2 mb-30">
+                                       <input type="text" name="subject" placeholder="موضوع">
+                                    </div>
+                                 </div>
+                                 <div class="col-xxl-12">
+                                    <div class="contact__input contact__input-2 mb-30">
+                                       <textarea placeholder="پیام" name="message"></textarea>
+                                    </div>
+                                 </div>
+                                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                                    <div class="contact__input contact__input-2 mb-30">
+                                       {{form.captcha}}
+                                    </div>
+                                 </div>
+                                 <div class="col-xl-12">
+                                    <div class="contact__form-btn-2">
+                                       <button type="submit">
+                                          <span class="d-flex align-items-center">  ارسال  <i class="flaticon-paper-plane"></i></span>
+                                       </button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </form>
+                           {% else %}
+                           <form action="{% url 'website:contact' %}" method="post">
+                              {% csrf_token %}
+                              <div class="row">
+                                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                                    <div class="contact__input contact__input-2 mb-30">
+                                       <input type="text" name='name' placeholder="نام">
                                     </div>
                                  </div>
                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
@@ -213,7 +257,7 @@
                                  </div>
                               </div>
                            </form>
-                  
+                           {% endif %}
                         </div>
                      </div>
                      <div class="col-xxl-4 col-xl-4 col-lg-4">

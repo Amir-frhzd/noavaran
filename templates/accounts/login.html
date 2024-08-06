@@ -1,4 +1,6 @@
+
 {% load static %}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -19,10 +21,10 @@
   
   </head>
   <body class="text-center">
-    <form class="form-signin" method="post" action="{% url 'accounts:login' %}">
+    <form class="form-signin" method="post" action="{% url 'accounts:login' %}?next={{request.GET.next}}">
         {% csrf_token %}
   <img class="mb-4" src="{% static 'img/bootstrap-solid.svg' %}" alt="" width="72" height="72">
-  <h1 class="h3 mb-3 font-weight-normal">Please Log in</h1>
+  <h1 class="h3 mb-3 font-weight-normal">لطفا وارد شوید</h1>
 
  <label for="inputEmail" class="sr-only">Username</label>
   <input type="text" name="username_or_email" class="form-control" placeholder="username_or_email" required >
@@ -37,10 +39,10 @@
       <input type="checkbox" value="remember-me"> Remember me
     </label>
   </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-  <a href="#"><i>Forgot Password?</i></a>
-  {% include 'message.html' %}
-  <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">ورود</button>
+  <a href="{% url 'accounts:password_reset' %}"><i>فراموشی رمز عبور</i></a>
+  <a href="{% url 'accounts:signup' %}"><i>ثبت نام</i></a>
+  {% include 'messages.html' %}
 </form>
 </body>
 </html>

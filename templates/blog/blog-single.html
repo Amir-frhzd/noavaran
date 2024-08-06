@@ -228,23 +228,26 @@
                                     </div>
                                     <div class="postbox__comment-form">
                                        
-                                       
+                                       {% if request.user.is_authenticated %}
                                        <form action="{% url 'blog:single' post.id %}" method="POST">
                                           {% csrf_token %}
                                           <div class="row">
                                              <div class="col-xxl-6">
+                                                
                                                 <div class="postbox__comment-input">
-                                                   <span>اسم شما*</span>
-                                                   <input name="name" type="text">
+                                 
+                                                   <input type="hidden" name="name" value={{request.user.first_name}}>
                                                    <input type="hidden"  name="post" value={{post.id}}>
                                                 </div>
                                              </div>
                                              <div class="col-xxl-6">
                                                 <div class="postbox__comment-input">
-                                                   <span>ایمیل شما*</span>
-                                                   <input name="email" type="email">
+                                                   
+                                                   <input name="email" type="hidden" value={{request.user.email}}>
                                                 </div>
                                              </div>
+ 
+                                          
                                              <div class="col-xxl-12">
                                                 <div class="postbox__comment-input">
                                                    <span>نظر*</span>
@@ -261,6 +264,43 @@
                                              </div>
                                           </div>
                                        </form>
+                                       {% else %}
+                                       <form action="{% url 'blog:single' post.id %}" method="POST">
+                                          {% csrf_token %}
+                                          <div class="row">
+                                             <div class="col-xxl-6">
+                                 
+                                                <div class="postbox__comment-input">
+                                                   <span>اسم شما*</span>
+                                                   <input type="text" name="name" >
+                                                   <input type="hidden"  name="post" value={{post.id}}>
+                                                </div>
+                                             </div>
+                                             <div class="col-xxl-6">
+                                                <div class="postbox__comment-input">
+                                                   <span>ایمیل شما*</span>
+                                                   <input name="email" type="email">
+                                                </div>
+                                             </div>
+ 
+                                          
+                                             <div class="col-xxl-12">
+                                                <div class="postbox__comment-input">
+                                                   <span>نظر*</span>
+                                                   <textarea name="message"></textarea>
+                                                </div>
+                                             </div>
+                                             <div class="col-xxl-12">
+                                       
+                                             
+                                                <div class="postbox__comment-btn">
+                                                   <button type="submit" class="d-btn d-btn-3 d-btn-orange">ارسال نظر <i class="far fa-arrow-left"></i></button>
+                                                </div>
+                                             
+                                             </div>
+                                          </div>
+                                       </form>
+                                       {% endif %}
                                     </div>
                                  </div>
                               </div>
