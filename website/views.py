@@ -36,3 +36,5 @@ def contact_view(request):
     form=ContactForm()
     context={'form':form}
     return render(request,'website/contact.html',context)
+def custom_404(request,exception):
+    return redirect('/')

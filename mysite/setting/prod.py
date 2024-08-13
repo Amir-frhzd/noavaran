@@ -6,9 +6,9 @@ from mysite.settings import *
 SECRET_KEY = 'django-insecure-w69mo_ei@&y@8!6_%t_jy0#jo01po!3#fphq&m0yb&j8sa^r)r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['setaresiah.com','www.setaresiah.com']
 
 # sites framework
 SITE_ID = 2

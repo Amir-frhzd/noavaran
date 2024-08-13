@@ -19,14 +19,17 @@ from django.contrib.sitemaps.views import sitemap
 from website.sitemaps import StaticViewSitemap
 from blog.sitemaps import BlogSitemap
 import debug_toolbar
+from django.shortcuts import redirect
+from django.conf.urls import handler404
+from website.views import custom_404
 sitemaps = {
     "static": StaticViewSitemap,
     "blog" : BlogSitemap,
 }
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('',include('website.urls')),
+    path('admin/', admin.site.urls),
     path('blog/',include('blog.urls')),
      path(
         "sitemap.xml",
@@ -44,5 +47,4 @@ from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
+handler404 = custom_404
