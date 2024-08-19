@@ -28,3 +28,29 @@ STATICFILES_DIRS = [
     BASE_DIR / "statics"
 ]
 X_FRAME_OPTIONS = "SAMEORIGIN"
+
+SECURE_BROWSER_XSS_FILTER = True
+#X-Content-Type-Options
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+## Strict-Transport-Security
+SECURE_HSTS_SECONDS = 15768000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+## that requests over HTTP are redirected to HTTPS. aslo can config in webserver
+SECURE_SSL_REDIRECT = True 
+
+# for more security
+CSRF_COOKIE_SECURE = True
+CSRF_USE_SESSIONS = True
+CSRF_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SAMESITE = 'Strict'
+
+# Keep our policy as strict as possible
+CSP_DEFAULT_SRC = ("'none'",)
+CSP_STYLE_SRC = ("'self'", 'fonts.googleapis.com')
+CSP_SCRIPT_SRC = ("'self'",)
+CSP_FONT_SRC = ("'self'", 'fonts.gstatic.com')
+CSP_IMG_SRC = ("'self'",)
