@@ -18,7 +18,7 @@ def service_details_view(request):
 def contact_view(request):
     if request.method =='POST':
         form=ContactForm(request.POST)
-        print("55555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555")
+        
         if form.is_valid():
             phone=form.cleaned_data['phone']
             if not phone.startswith('09'):
@@ -30,7 +30,7 @@ def contact_view(request):
 
             form.save()
             messages.add_message(request,messages.SUCCESS,'فرم با موفقیت ثبت شد با تشکر از شما',fail_silently=True)
-            print("9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999")
+            
         else:
              messages.add_message(request,messages.ERROR,"اطلاعات را به صورت کامل و به درستی وارد کنید")
     form=ContactForm()

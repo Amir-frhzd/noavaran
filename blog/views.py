@@ -21,7 +21,7 @@ def blog_view(request,slug=None,str=None,tag_name=None):
     if tag_name:
         tag_name = uri_to_iri(tag_name)
         posts=posts.filter(tags__name__in=[tag_name])
-        print(posts.query,'fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')
+        
     try:
         posts=Paginator(posts,2)
         page_number=request.GET.get('page')
@@ -65,7 +65,7 @@ def single_view(request,pid):
 def search_view(request):
     posts=Post.objects.filter(status=1)
     if request.method == 'GET' :
-        #print(request.GET.get('s'))
+    
         if s :=request.GET.get('s'):
             posts = posts.filter(content__contains=s)
     context ={'posts':posts}
