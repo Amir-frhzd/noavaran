@@ -1797,10 +1797,11 @@
                      </div>
                      <div class="col-xxl-5 col-xl-6 col-lg-6">
                         <div class="cta__form cta__form-2">
-                           <form action="#">
+                           <form action="{% url 'website:newsletter' %}" method="post">
+                              {% csrf_token %}
                               <div class="cta__form-input-wrapper p-relative">
                                  <div class="cta__form-input cta__form-input-2 p-relative float-end">
-                                    <input type="email" placeholder="ایمیل شما">
+                                    <input name="email" type="email" placeholder="ایمیل شما">
                                     <span class="mail-icon"><i class="fal fa-envelope"></i></span>
                                  </div>
                                  <button type="submit"><i class="flaticon-paper-plane"></i> مشترک شدن </button>

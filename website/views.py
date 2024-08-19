@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .forms import ContactForm
+from .forms import ContactForm,NewsletterForm
 from django.contrib import messages
 from django.http import HttpResponse,JsonResponse,HttpResponseRedirect
 # Create your views here.
@@ -38,3 +38,16 @@ def contact_view(request):
     return render(request,'website/contact.html',context)
 def custom_404(request,exception):
     return redirect('/')
+
+def newsletter_view(request):
+    if request.method == "POST" :
+        form = NewsletterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request,messages.SUCCESS,"ایمیل شما با موفقیت ثبت شد")
+        
+            return HttpResponseRedirect('/')
+        else:
+            messages.add_message(request,messages.ERROR,"مشکلی وجود دارد و ایمیل شما ثبت نشد مجدد تلاش کنید")
+    else:
+        return HttpResponseRedirect('/')
