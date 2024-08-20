@@ -44,6 +44,10 @@ def single_view(request,pid):
 
 
     posts=get_object_or_404(Post,pk=pid,status=1,published_date__lte=timezone.now())
+    all_post=Post.objects.filter(status=1,published_date__lte=timezone.now())
+    next_post =all_post.filter(id__gt=pid).order_by('id').first()
+    previous_post=all_post.filter(id__lt=pid).order_by('-id').first()
+    posts.save()
     if posts:
         posts.counted_view += 1
         posts.save()
@@ -51,13 +55,13 @@ def single_view(request,pid):
         tags =posts.tags.all()
         categories=posts.category.all()
         form=CommentForm()
-        context={'post':posts,'tags':tags,'categories':categories,'form':form}
+        context={'post':posts,'tags':tags,'categories':categories,'form':form,'next_post':next_post,'previous_post':previous_post}
         return render(request,'blog/blog-single.html',context)
     elif request.user.is_authenticated :
         tags =posts.tags.all()
         categories=posts.category.all()
         form=CommentForm()
-        context={'post':posts,'tags':tags,'categories':categories,'form':form}
+        context={'post':posts,'tags':tags,'categories':categories,'form':form,'next_post':next_post,'previous_post':previous_post}
         return render(request,'blog/blog-single.html',context)
     else :
         login_url=reverse('accounts:login')
