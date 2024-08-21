@@ -37,7 +37,7 @@ def contact_view(request):
     context={'form':form}
     return render(request,'website/contact.html',context)
 def custom_404(request,exception):
-    return redirect('/')
+    return render(request,"website/404.html")
 
 def newsletter_view(request):
     if request.method == "POST" :
