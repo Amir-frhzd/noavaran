@@ -11,7 +11,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['setaresiah.com','www.setaresiah.com']
 
 # sites framework
-SITE_ID = 2
+SITE_ID = 3
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
