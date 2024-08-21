@@ -1,11 +1,14 @@
 {% load static %}
+{% load compress %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Django Project</title>
+    {% compress css %}
     <link rel="stylesheet" href="{% static 'css/messages.css' %}">
+    {% endcompress %}
 </head>
 <body>
     {% if messages %}
@@ -20,7 +23,8 @@
 
     {% block content %}
     {% endblock %}
-
+    {% compress js %}
     <script src="{% static 'js/messages.js' %}"></script>
+    {% endcompress %}
 </body>
 </html>
